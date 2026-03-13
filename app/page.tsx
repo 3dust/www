@@ -722,12 +722,12 @@ export default function Home() {
                     <p className="mt-3 min-h-12 text-sm leading-7 text-slate-600 sm:text-base">
                       {feature.description}
                     </p>
-                    <button
-                      type="button"
+                    <Link
+                      href="/contact"
                       className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
                     >
                       了解详情
-                    </button>
+                    </Link>
                   </div>
 
                   <div className="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
@@ -834,12 +834,12 @@ export default function Home() {
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
                   Antom 的 AI 营销解决方案，助您提升用户互动、获客效率与营销成效。
                 </p>
-                <button
-                  type="button"
+                <Link
+                  href="/contact"
                   className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   了解详情
-                </button>
+                </Link>
               </div>
 
               <div className="relative min-h-[260px] rounded-[28px] bg-slate-50">
