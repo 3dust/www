@@ -579,15 +579,16 @@ export default function Home() {
               {[...brandLogos, ...brandLogos].map((logoSrc, index) => (
                 <div
                   key={`${logoSrc}-${index}`}
-                  className="mx-7 flex h-20 w-44 shrink-0 items-center justify-center"
+                  className="mx-8 flex h-[11rem] w-[18rem] shrink-0 items-center justify-center"
                 >
-                  <div className="relative h-12 w-full">
+                  <div className="relative h-[7rem] w-full overflow-hidden">
                     <Image
                       src={logoSrc}
                       alt={`品牌 ${index + 1}`}
                       fill
                       className="object-contain"
-                      sizes="160px"
+                      style={{ transform: "scale(1.45)" }}
+                      sizes="180px"
                     />
                   </div>
                 </div>
