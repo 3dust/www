@@ -309,7 +309,7 @@ export default function Home() {
         </section>
 
         <section className="pt-14">
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
               支付功能
             </h2>
@@ -318,7 +318,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-6xl gap-5 sm:grid-cols-2">
+          <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:grid-cols-2 sm:px-6">
             {paymentFeatures.map((feature) => (
               <article
                 key={feature.title}
@@ -352,7 +352,7 @@ export default function Home() {
             ))}
           </div>
 
-          <article className="mx-auto mt-5 flex max-w-6xl flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm lg:flex-row">
+          <article className="mx-4 mt-5 flex max-w-6xl flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 lg:mx-auto lg:flex-row">
             <div className="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 sm:py-10">
               <h3 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 安全、合规地提供收单服务
@@ -374,7 +374,7 @@ export default function Home() {
           </article>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 覆盖全球的收单能力
               </h2>
@@ -389,7 +389,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:grid-cols-5">
               {paymentMethodImages.map((imageSrc, index) => (
                 <div
                   key={imageSrc}
@@ -410,7 +410,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 改善支付表现
               </h2>
@@ -419,7 +419,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2">
+            <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:grid-cols-2 sm:px-6">
               {advancedFeatures.map((feature) => (
                 <article
                   key={feature.title}
@@ -455,7 +455,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 深耕安全解决方案
               </h2>
@@ -464,7 +464,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl gap-5 sm:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:grid-cols-3 sm:px-6">
               {securityFeatures.map((feature) => (
                 <article
                   key={feature.title}
@@ -486,7 +486,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mx-auto mt-8 grid max-w-6xl gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="mx-auto mt-8 grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr]">
               <div className="divide-y divide-slate-200/80">
                 {securityHighlights.map((item) => (
                   <article
@@ -527,7 +527,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 以创新驱动增长
               </h2>
@@ -536,7 +536,7 @@ export default function Home() {
               </p>
             </div>
 
-            <article className="mx-auto mt-10 grid max-w-6xl gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm lg:grid-cols-[1fr_0.9fr] lg:p-8">
+            <article className="mx-4 mt-10 grid max-w-6xl gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 lg:mx-auto lg:grid-cols-[1fr_0.9fr] lg:p-8">
               <div className="flex flex-col justify-center">
                 <h3 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   A+ Rewards
@@ -565,7 +565,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 解决方案
               </h2>
@@ -574,7 +574,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl gap-5 lg:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:px-6 lg:grid-cols-2">
               <article className="flex items-center justify-between gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:p-8">
                 <div className="flex flex-1 flex-col justify-center">
                   <h3 className="text-3xl font-semibold tracking-tight text-slate-950">
@@ -632,7 +632,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <article className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.95fr]">
+            <article className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr]">
               <div className="flex flex-col justify-center">
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   助力泰国越捷航空，为全球旅行者提升支付体验
@@ -656,7 +656,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <div className="mb-0">
                 <h2 className="text-3xl font-semibold leading-none tracking-tight text-slate-950 sm:text-4xl">
                   新闻
@@ -691,7 +691,7 @@ export default function Home() {
           </section>
 
           <section className="pt-14">
-            <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-[32px] bg-[#0f2f7a] px-6 py-10 shadow-[0_24px_60px_rgba(15,47,122,0.28)] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:py-12">
+            <div className="mx-4 flex max-w-6xl flex-col gap-6 rounded-[32px] bg-[#0f2f7a] px-6 py-10 shadow-[0_24px_60px_rgba(15,47,122,0.28)] sm:mx-6 sm:px-8 lg:mx-auto lg:flex-row lg:items-center lg:justify-between lg:py-12">
               <div>
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   即刻启用Antom收单服务
