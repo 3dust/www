@@ -224,7 +224,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6 sm:p-10 lg:p-14">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden p-6 sm:block sm:p-10 lg:p-14">
             <div className="mx-auto max-w-7xl">
               <div className="max-w-3xl">
               <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_8px_24px_rgba(15,23,42,0.35)] sm:text-4xl lg:text-5xl">
@@ -254,22 +254,22 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-between gap-8 px-6 py-8 sm:flex-row sm:items-start sm:gap-6 lg:px-10">
-          <div className="min-w-0 flex-1 text-center">
+        <div className="grid w-full grid-cols-2 gap-6 px-6 py-8 sm:flex sm:items-start sm:justify-between sm:gap-6 lg:px-10">
+          <div className="min-w-0 text-center sm:flex-1">
             <div className="text-3xl font-semibold tracking-tight text-slate-950">
               200+
             </div>
             <div className="mt-2 text-sm text-slate-600">个国家/地区收单</div>
           </div>
           <div className="hidden h-12 w-px bg-slate-200 sm:block" />
-          <div className="min-w-0 flex-1 text-center">
+          <div className="min-w-0 text-center sm:flex-1">
             <div className="text-3xl font-semibold tracking-tight text-slate-950">
               300+
             </div>
             <div className="mt-2 text-sm text-slate-600">支付方式</div>
           </div>
           <div className="hidden h-12 w-px bg-slate-200 sm:block" />
-          <div className="min-w-0 flex-1 text-center">
+          <div className="col-span-2 min-w-0 text-center sm:col-span-1 sm:flex-1">
             <div className="text-3xl font-semibold tracking-tight text-slate-950">
               100+
             </div>
@@ -278,11 +278,55 @@ export default function Home() {
         </div>
 
         <section className="pt-10">
-          <h2 className="text-center text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+          <h2 className="text-center text-xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
             深受众多国际知名品牌信赖
           </h2>
 
-          <div className="relative mt-6 overflow-hidden py-4">
+          <div className="mt-6 space-y-3 overflow-hidden px-4 sm:hidden">
+            <div className="mobile-brand-marquee flex w-max items-center">
+              {[...brandLogos.slice(0, 9), ...brandLogos.slice(0, 9)].map(
+                (logoSrc, index) => (
+                  <div
+                    key={`mobile-top-${logoSrc}-${index}`}
+                    className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+                  >
+                    <div className="relative h-7 w-full">
+                      <Image
+                        src={logoSrc}
+                        alt={`品牌 ${index + 1}`}
+                        fill
+                        className="object-contain"
+                        sizes="96px"
+                      />
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+
+            <div className="mobile-brand-marquee-reverse flex w-max items-center">
+              {[...brandLogos.slice(9), ...brandLogos.slice(9)].map(
+                (logoSrc, index) => (
+                  <div
+                    key={`mobile-bottom-${logoSrc}-${index}`}
+                    className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+                  >
+                    <div className="relative h-7 w-full">
+                      <Image
+                        src={logoSrc}
+                        alt={`品牌 ${index + 10}`}
+                        fill
+                        className="object-contain"
+                        sizes="96px"
+                      />
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <div className="relative mt-6 hidden overflow-hidden py-4 sm:block">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white via-white/85 to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white via-white/85 to-transparent" />
 
@@ -309,11 +353,11 @@ export default function Home() {
         </section>
 
         <section className="pt-14">
-          <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              支付功能
-            </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+            <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                支付功能
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
               Antom 不断扩展全球收单服务，助力大中小企业便捷接入本地支付网络。依托强大的全球合作伙伴网络，Antom 能够为企业的数字化转型、业务增长与全球拓展提供便利。无论是利用丰富多样的支付产品进行本地或跨境交易，还是借助 Alipay+ 生态开辟支付以外的更多服务，一切都可通过 Antom 轻松实现。依托近 20 亿电子钱包用户、自带的会员与营销工具，我们助您触达更多客户，加速业务增长。
             </p>
           </div>
@@ -352,8 +396,18 @@ export default function Home() {
             ))}
           </div>
 
-          <article className="mx-4 mt-5 flex max-w-6xl overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 sm:rounded-[32px] lg:mx-auto">
-            <div className="flex flex-1 flex-col justify-center px-4 py-5 sm:px-8 sm:py-10">
+          <article className="mx-4 mt-5 flex max-w-6xl flex-col overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 sm:rounded-[32px] lg:mx-auto lg:flex-row">
+            <div className="relative min-h-[180px] w-full shrink-0 sm:min-h-[340px] sm:flex-1 lg:order-2">
+              <Image
+                src="/29.webp"
+                alt="安全、合规地提供收单服务"
+                fill
+                className="object-contain bg-slate-50"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+
+            <div className="flex flex-1 flex-col justify-center px-4 py-5 sm:px-8 sm:py-10 lg:order-1">
               <h3 className="text-xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 安全、合规地提供收单服务
               </h3>
@@ -361,29 +415,19 @@ export default function Home() {
                 丰富的本地收单牌照资源和收单伙伴关系，让我们的服务遍及中国内地、中国香港、日本、韩国、泰国、印尼、菲律宾、巴基斯坦、新加坡、澳大利亚、美国及欧盟等市场。
               </p>
             </div>
-
-            <div className="relative min-h-[160px] w-[42%] shrink-0 sm:min-h-[340px] sm:flex-1">
-              <Image
-                src="/29.webp"
-                alt="安全、合规地提供收单服务"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
           </article>
 
           <section className="pt-14">
             <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 覆盖全球的收单能力
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
                 支持300+支付方式，包括银行卡、网银、电子钱包等国际主流和本地常用付款方式，涵盖超过100种交易币种，连接您和20亿消费者。
               </p>
               <button
                 type="button"
-                className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                className="mt-5 inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-xs font-medium text-white transition hover:bg-slate-800 sm:px-6 sm:py-3 sm:text-sm"
               >
                 查看支付方式
               </button>
@@ -393,9 +437,9 @@ export default function Home() {
               {paymentMethodImages.map((imageSrc, index) => (
                 <div
                   key={imageSrc}
-                  className="rounded-[18px] border border-slate-200 bg-white/85 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:rounded-[24px] sm:p-4"
+                  className="rounded-[14px] border border-slate-200 bg-white/85 p-2 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:rounded-[24px] sm:p-4"
                 >
-                  <div className="relative h-18 w-full sm:h-28">
+                  <div className="relative h-12 w-full sm:h-28">
                     <Image
                       src={imageSrc}
                       alt={`支付方式 ${index + 1}`}
@@ -411,10 +455,10 @@ export default function Home() {
 
           <section className="pt-14">
             <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 改善支付表现
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
                 除了为您接收全球交易，我们还准备了一系列增强工具，帮您更精细地处理每一笔交易。通过防范欺诈、提升支付成功率等手段，助力实现降本增效并提升消费者满意度。
               </p>
             </div>
@@ -456,10 +500,10 @@ export default function Home() {
 
           <section className="pt-14">
             <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 深耕安全解决方案
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
                 行业领先的欺诈管理解决方案，基于十余年全球支付反欺诈经验，为各行业定制专业风控解决方案，让您放心交易。
               </p>
             </div>
@@ -468,9 +512,9 @@ export default function Home() {
               {securityFeatures.map((feature) => (
                 <article
                   key={feature.title}
-                  className="flex flex-col items-center rounded-[22px] border border-slate-200 bg-white/85 px-4 py-5 text-center shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:rounded-[28px] sm:px-6 sm:py-8"
+                  className="flex items-center gap-3 rounded-[18px] border border-slate-200 bg-white/85 px-3 py-3 text-left shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:flex-col sm:items-center sm:rounded-[28px] sm:px-6 sm:py-8 sm:text-center"
                 >
-                  <div className="relative h-16 w-16 sm:h-28 sm:w-28">
+                  <div className="relative h-12 w-12 sm:h-28 sm:w-28">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -479,9 +523,11 @@ export default function Home() {
                       sizes="112px"
                     />
                   </div>
-                  <h3 className="mt-4 text-base font-semibold tracking-tight text-slate-950 sm:mt-6 sm:text-xl">
-                    {feature.title}
-                  </h3>
+                  <div className="sm:mt-6">
+                    <h3 className="text-sm font-semibold tracking-tight text-slate-950 sm:text-xl">
+                      {feature.title}
+                    </h3>
+                  </div>
                 </article>
               ))}
             </div>
@@ -528,10 +574,10 @@ export default function Home() {
 
           <section className="pt-14">
             <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 以创新驱动增长
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
                 借助前沿的数字营销与定制化产品，显著提升支付成功率与营收表现，释放您的增长潜力。
               </p>
             </div>
@@ -566,10 +612,10 @@ export default function Home() {
 
           <section className="pt-14">
             <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 解决方案
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
                 基于对行业模式和展业痛点的深刻理解，我们构建产品组合，推出一站式垂直行业解决方案，帮助您更高效、更智能地应对全球支付需求，实现数字化经营。
               </p>
             </div>
@@ -634,10 +680,10 @@ export default function Home() {
           <section className="pt-14">
             <article className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr]">
               <div className="flex flex-col justify-center">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   助力泰国越捷航空，为全球旅行者提升支付体验
                 </h2>
-                <p className="mt-5 text-sm leading-8 text-slate-600 sm:text-base">
+                <p className="mt-4 text-xs leading-6 text-slate-600 sm:text-base sm:leading-8">
                   “支付是营收增长的关键一环，助力我们能以更快速度驶向未来。” 观看视频，了解泰国越捷航空如何与 Antom 旗下品牌 2C2P 携手合作，共同开拓全球展业新旅程。
                 </p>
               </div>
@@ -658,7 +704,7 @@ export default function Home() {
           <section className="pt-14">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <div className="mb-0">
-                <h2 className="text-3xl font-semibold leading-none tracking-tight text-slate-950 sm:text-4xl">
+                <h2 className="text-2xl font-semibold leading-none tracking-tight text-slate-950 sm:text-4xl">
                   新闻
                 </h2>
               </div>
@@ -693,10 +739,10 @@ export default function Home() {
           <section className="pt-14">
             <div className="mx-4 flex max-w-6xl flex-col gap-6 rounded-[32px] bg-[#0f2f7a] px-6 py-10 shadow-[0_24px_60px_rgba(15,47,122,0.28)] sm:mx-6 sm:px-8 lg:mx-auto lg:flex-row lg:items-center lg:justify-between lg:py-12">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
                   即刻启用Antom收单服务
                 </h2>
-                <p className="mt-3 text-base text-white/80 sm:text-lg">
+                <p className="mt-2 text-sm text-white/80 sm:text-lg">
                   助力您的业务增长
                 </p>
               </div>
@@ -780,12 +826,38 @@ export default function Home() {
           animation: brand-marquee 36s linear infinite;
         }
 
+        .mobile-brand-marquee {
+          animation: mobile-brand-marquee 18s linear infinite;
+        }
+
+        .mobile-brand-marquee-reverse {
+          animation: mobile-brand-marquee-reverse 20s linear infinite;
+        }
+
         @keyframes brand-marquee {
           from {
             transform: translateX(0);
           }
           to {
             transform: translateX(-50%);
+          }
+        }
+
+        @keyframes mobile-brand-marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes mobile-brand-marquee-reverse {
+          from {
+            transform: translateX(-50%);
+          }
+          to {
+            transform: translateX(0);
           }
         }
       `}</style>
