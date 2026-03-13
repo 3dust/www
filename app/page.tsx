@@ -357,9 +357,9 @@ export default function Home() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 支付功能
               </h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
-              Antom 不断扩展全球收单服务，助力大中小企业便捷接入本地支付网络。依托强大的全球合作伙伴网络，Antom 能够为企业的数字化转型、业务增长与全球拓展提供便利。无论是利用丰富多样的支付产品进行本地或跨境交易，还是借助 Alipay+ 生态开辟支付以外的更多服务，一切都可通过 Antom 轻松实现。依托近 20 亿电子钱包用户、自带的会员与营销工具，我们助您触达更多客户，加速业务增长。
-            </p>
+              <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-lg sm:leading-8">
+                Antom 不断扩展全球收单服务，助力大中小企业便捷接入本地支付网络。依托强大的全球合作伙伴网络，Antom 能够为企业的数字化转型、业务增长与全球拓展提供便利。无论是利用丰富多样的支付产品进行本地或跨境交易，还是借助 Alipay+ 生态开辟支付以外的更多服务，一切都可通过 Antom 轻松实现。依托近 20 亿电子钱包用户、自带的会员与营销工具，我们助您触达更多客户，加速业务增长。
+              </p>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6">
@@ -372,12 +372,12 @@ export default function Home() {
                   <h3 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-2xl">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-5 text-slate-600 sm:mt-3 sm:min-h-12 sm:text-base sm:leading-7">
+                  <p className="mt-0.5 text-xs leading-4.5 text-slate-600 sm:mt-3 sm:min-h-12 sm:text-base sm:leading-7">
                     {feature.description}
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-4 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                    className="mt-3 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
@@ -458,7 +458,7 @@ export default function Home() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 改善支付表现
               </h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-lg sm:leading-8">
                 除了为您接收全球交易，我们还准备了一系列增强工具，帮您更精细地处理每一笔交易。通过防范欺诈、提升支付成功率等手段，助力实现降本增效并提升消费者满意度。
               </p>
             </div>
@@ -503,7 +503,7 @@ export default function Home() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 深耕安全解决方案
               </h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-lg">
+              <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-lg sm:leading-8">
                 行业领先的欺诈管理解决方案，基于十余年全球支付反欺诈经验，为各行业定制专业风控解决方案，让您放心交易。
               </p>
             </div>
@@ -537,9 +537,9 @@ export default function Home() {
                 {securityHighlights.map((item) => (
                   <article
                     key={item.title}
-                    className="flex items-start gap-4 py-5 first:pt-0 last:pb-0"
+                    className="flex items-start gap-3 py-4 first:pt-0 last:pb-0 sm:gap-4 sm:py-5"
                   >
-                    <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
+                    <div className="relative h-10 w-10 shrink-0 sm:h-16 sm:w-16">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -549,10 +549,10 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold tracking-tight text-slate-950">
+                      <h3 className="text-base font-semibold tracking-tight text-slate-950 sm:text-xl">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-7 text-slate-600 sm:text-base">
+                      <p className="mt-1 text-xs leading-5 text-slate-600 sm:mt-2 sm:text-base sm:leading-7">
                         {item.description}
                       </p>
                     </div>
