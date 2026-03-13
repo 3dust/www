@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navItems = ["产品", "解决方案", "资源", "关于我们", "行业报告"];
@@ -64,103 +64,114 @@ const reportMenuItems = [
 
 export default function SiteHeader() {
   const [activeNav, setActiveNav] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileActive, setMobileActive] = useState<string | null>(null);
+
+  function toggleDesktopNav(item: string) {
+    setActiveNav((cur) => (cur === item ? null : item));
+  }
+
+  function toggleMobileNav(item: string) {
+    setMobileActive((cur) => (cur === item ? null : item));
+  }
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/60 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-1 py-5 lg:px-2">
-        <div className="flex items-center gap-8">
-          <div className="relative h-10 w-36 shrink-0">
-            <Link href="/">
+    <header className="sticky top-0 z-30 border-b border-white/60 bg-white/95 backdrop-blur">
+      {/* ── Top bar ── */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-6">
+        <div className="flex items-center gap-5 lg:gap-6">
+          {/* Logo */}
+          <div className="relative h-9 w-32 shrink-0">
+            <Link href="/" onClick={() => { setMobileOpen(false); setActiveNav(null); }}>
               <Image
                 src="/antom.svg"
                 alt="Antom"
                 fill
                 priority
                 className="object-contain object-left"
-                sizes="144px"
+                sizes="128px"
               />
             </Link>
           </div>
 
-          <nav className="hidden items-center gap-2 md:flex">
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <button
                 key={item}
                 type="button"
-                onClick={() =>
-                  setActiveNav((current) => (current === item ? null : item))
-                }
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-semibold transition ${
+                onClick={() => toggleDesktopNav(item)}
+                className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-semibold transition ${
                   activeNav === item
-                    ? "border-b-4 border-[#1738c6] text-slate-950"
+                    ? "border-b-2 border-[#1738c6] text-slate-950"
                     : "text-slate-700 hover:text-slate-950"
                 }`}
               >
-                <span>{item}</span>
+                {item}
                 {activeNav === item ? (
-                  <ChevronUp className="h-4 w-4" />
+                  <ChevronUp className="h-3.5 w-3.5" />
                 ) : (
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className="h-3.5 w-3.5" />
                 )}
               </button>
             ))}
           </nav>
         </div>
+
+        {/* Desktop contact button */}
         <Link
           href="/contact"
           className="hidden rounded-full bg-[#1738c6] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1330a9] md:inline-flex"
         >
           联系我们
         </Link>
-      </div>
 
-      <div className="border-t border-slate-200/80 bg-white/70 md:hidden">
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-x-3 gap-y-2 px-1 py-3">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className="flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700"
-            >
-              <span>{item}</span>
-              <ChevronDown className="h-4 w-4" />
-            </button>
-          ))}
+        {/* Mobile: contact + hamburger */}
+        <div className="flex items-center gap-3 md:hidden">
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="rounded-full bg-[#1738c6] px-4 py-2 text-sm font-semibold text-white"
+          >
+            联系我们
+          </Link>
+          <button
+            type="button"
+            aria-label="菜单"
+            onClick={() => setMobileOpen((o) => !o)}
+            className="rounded-md p-1.5 text-slate-700 hover:bg-slate-100"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
 
-      {activeNav === "产品" ? (
+      {/* ── Desktop dropdown panels ── */}
+      {activeNav === "产品" && (
         <div className="hidden border-t border-slate-200 bg-white md:block">
-          <div className="mx-auto grid max-w-7xl gap-6 px-1 py-8 lg:grid-cols-[0.9fr_1fr_1fr_0.8fr] lg:px-2">
+          <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 lg:grid-cols-[0.9fr_1fr_1fr_0.8fr] lg:px-6">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                产品
-              </h2>
-              <p className="mt-4 text-xl leading-[1.45] text-slate-500">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">产品</h2>
+              <p className="mt-3 text-base leading-relaxed text-slate-500">
                 一站式支付、增长、数字化解决方案。
               </p>
-              <a href="#" className="mt-5 inline-block text-lg font-semibold text-[#1738c6]">
+              <a href="#" className="mt-4 inline-block text-sm font-semibold text-[#1738c6]">
                 查看所有支付方式
               </a>
-              <p className="mt-3 max-w-md text-base leading-7 text-slate-500">
+              <p className="mt-2 max-w-md text-sm leading-7 text-slate-500">
                 Antom 支持全球300+支付方式，助您轻松布局国际市场。
               </p>
             </div>
-
             {productMenuColumns.map((column) => (
               <div key={column.title}>
-                <h3 className="text-[1.35rem] font-semibold tracking-tight text-slate-950">
+                <h3 className="text-base font-semibold tracking-tight text-slate-950">
                   {column.title}
                 </h3>
-                <div className="mt-5 space-y-5">
+                <div className="mt-4 space-y-4">
                   {column.items.map((item) => (
                     <div key={item.name}>
-                      <div className="text-[1.15rem] font-semibold text-[#1738c6]">
-                        {item.name}
-                      </div>
-                      <p className="mt-1 text-sm leading-6 text-slate-600">
-                        {item.desc}
-                      </p>
+                      <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                      <p className="mt-0.5 text-xs leading-5 text-slate-500">{item.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -168,97 +179,75 @@ export default function SiteHeader() {
             ))}
           </div>
         </div>
-      ) : null}
+      )}
 
-      {activeNav === "解决方案" ? (
+      {activeNav === "解决方案" && (
         <div className="hidden border-t border-slate-200 bg-white md:block">
-          <div className="mx-auto grid max-w-7xl gap-8 px-1 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-2">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-6">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                解决方案
-              </h2>
-              <p className="mt-4 max-w-md text-xl leading-[1.5] text-slate-500">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">解决方案</h2>
+              <p className="mt-3 max-w-md text-base leading-relaxed text-slate-500">
                 定制化解决方案，助力业务增长提速。
               </p>
             </div>
-
-            <div className="space-y-7">
+            <div className="space-y-5">
               {solutionMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-[1.15rem] font-semibold text-[#1738c6]">
-                    {item.name}
-                  </div>
-                  <p className="mt-1 text-base leading-7 text-slate-600">
-                    {item.desc}
-                  </p>
+                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      ) : null}
+      )}
 
-      {activeNav === "资源" ? (
+      {activeNav === "资源" && (
         <div className="hidden border-t border-slate-200 bg-white md:block">
-          <div className="mx-auto grid max-w-7xl gap-8 px-1 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-2">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-6">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                资源
-              </h2>
-              <p className="mt-4 max-w-md text-xl leading-[1.5] text-slate-500">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">资源</h2>
+              <p className="mt-3 max-w-md text-base leading-relaxed text-slate-500">
                 为您的业务提供丰富资源支持
               </p>
             </div>
-
-            <div className="space-y-7">
+            <div className="space-y-5">
               {resourceMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-[1.15rem] font-semibold text-[#1738c6]">
-                    {item.name}
-                  </div>
-                  {item.desc ? (
-                    <p className="mt-1 text-base leading-7 text-slate-600">
-                      {item.desc}
-                    </p>
-                  ) : null}
+                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  {item.desc && (
+                    <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </div>
-      ) : null}
+      )}
 
-      {activeNav === "关于我们" ? (
+      {activeNav === "关于我们" && (
         <div className="hidden border-t border-slate-200 bg-white md:block">
-          <div className="mx-auto grid max-w-7xl gap-8 px-1 py-8 lg:grid-cols-[1fr_0.9fr_0.34fr] lg:px-2">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 lg:grid-cols-[1fr_0.9fr_0.34fr] lg:px-6">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                关于我们
-              </h2>
-              <p className="mt-4 max-w-lg text-xl leading-[1.5] text-slate-500">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">关于我们</h2>
+              <p className="mt-3 max-w-lg text-base leading-relaxed text-slate-500">
                 我们的平台致力于帮助企业更快实现商业目标。
               </p>
             </div>
-
-            <div className="space-y-7">
+            <div className="space-y-5">
               {aboutMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-[1.15rem] font-semibold text-[#1738c6]">
-                    {item.name}
-                  </div>
-                  {item.desc ? (
-                    <p className="mt-1 text-base leading-7 text-slate-600">
-                      {item.desc}
-                    </p>
-                  ) : null}
+                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  {item.desc && (
+                    <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
+                  )}
                 </div>
               ))}
             </div>
-
-            <div className="bg-slate-100 px-8 py-8">
-              <div className="space-y-8">
+            <div className="bg-slate-100 px-6 py-6">
+              <div className="space-y-6">
                 {aboutSideItems.map((item) => (
-                  <div key={item} className="text-[1.15rem] font-semibold text-[#1738c6]">
+                  <div key={item} className="text-sm font-semibold text-[#1738c6]">
                     {item}
                   </div>
                 ))}
@@ -266,30 +255,120 @@ export default function SiteHeader() {
             </div>
           </div>
         </div>
-      ) : null}
+      )}
 
-      {activeNav === "行业报告" ? (
+      {activeNav === "行业报告" && (
         <div className="hidden border-t border-slate-200 bg-white md:block">
-          <div className="mx-auto grid max-w-7xl gap-8 px-1 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-2">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 lg:grid-cols-[0.95fr_1fr] lg:px-6">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                行业报告
-              </h2>
-              <p className="mt-4 max-w-lg text-xl leading-[1.5] text-slate-500">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">行业报告</h2>
+              <p className="mt-3 max-w-lg text-base leading-relaxed text-slate-500">
                 深入了解市场与行业趋势，获取助力业务成长的实用指南。
               </p>
             </div>
-
-            <div className="space-y-7">
+            <div className="space-y-5">
               {reportMenuItems.map((item) => (
-                <div key={item} className="text-[1.15rem] font-semibold leading-8 text-[#1738c6]">
+                <div key={item} className="text-sm font-semibold leading-7 text-[#1738c6]">
                   {item}
                 </div>
               ))}
             </div>
           </div>
         </div>
-      ) : null}
+      )}
+
+      {/* ── Mobile slide-down menu ── */}
+      {mobileOpen && (
+        <div className="max-h-[75vh] overflow-y-auto border-t border-slate-200 bg-white md:hidden">
+          {navItems.map((item) => (
+            <div key={item} className="border-b border-slate-100">
+              <button
+                type="button"
+                onClick={() => toggleMobileNav(item)}
+                className="flex w-full items-center justify-between px-5 py-4 text-base font-semibold text-slate-800"
+              >
+                <span>{item}</span>
+                {mobileActive === item ? (
+                  <ChevronUp className="h-4 w-4 text-slate-500" />
+                ) : (
+                  <ChevronDown className="h-4 w-4 text-slate-500" />
+                )}
+              </button>
+
+              {mobileActive === item && (
+                <div className="bg-slate-50 px-5 pb-5 pt-2">
+                  {item === "产品" && (
+                    <div className="space-y-4">
+                      {productMenuColumns.map((col) => (
+                        <div key={col.title}>
+                          <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                            {col.title}
+                          </div>
+                          <div className="space-y-3">
+                            {col.items.map((pi) => (
+                              <div key={pi.name}>
+                                <div className="text-sm font-semibold text-[#1738c6]">
+                                  {pi.name}
+                                </div>
+                                <p className="text-xs leading-5 text-slate-500">{pi.desc}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item === "解决方案" && (
+                    <div className="space-y-3">
+                      {solutionMenuItems.map((si) => (
+                        <div key={si.name}>
+                          <div className="text-sm font-semibold text-[#1738c6]">{si.name}</div>
+                          <p className="text-xs leading-5 text-slate-500">{si.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item === "资源" && (
+                    <div className="space-y-3">
+                      {resourceMenuItems.map((ri) => (
+                        <div key={ri.name}>
+                          <div className="text-sm font-semibold text-[#1738c6]">{ri.name}</div>
+                          {ri.desc && (
+                            <p className="text-xs leading-5 text-slate-500">{ri.desc}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item === "关于我们" && (
+                    <div className="space-y-3">
+                      {[...aboutMenuItems.map((ai) => ({ name: ai.name, desc: ai.desc })), ...aboutSideItems.map((s) => ({ name: s, desc: "" }))].map(
+                        (ai) => (
+                          <div key={ai.name}>
+                            <div className="text-sm font-semibold text-[#1738c6]">{ai.name}</div>
+                            {ai.desc && (
+                              <p className="text-xs leading-5 text-slate-500">{ai.desc}</p>
+                            )}
+                          </div>
+                        )
+                      )}
+                    </div>
+                  )}
+                  {item === "行业报告" && (
+                    <div className="space-y-3">
+                      {reportMenuItems.map((ri) => (
+                        <div key={ri} className="text-sm font-semibold leading-6 text-[#1738c6]">
+                          {ri}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
