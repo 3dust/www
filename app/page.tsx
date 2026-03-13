@@ -709,13 +709,13 @@ export default function Home() {
                 </h2>
               </div>
 
-              <div className="-mt-20 grid gap-5 md:grid-cols-3">
+              <div className="-mt-20 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:overflow-visible md:pb-0 md:gap-5 md:grid-cols-3">
                 {[
                   { src: "/57.webp", label: "BillEase" },
                   { src: "/58.webp", label: "Kakao Pay" },
                   { src: "/59.webp", label: "NAVER Pay" },
                 ].map((item) => (
-                  <div key={item.src}>
+                  <div key={item.src} className="min-w-[78%] shrink-0 snap-center md:min-w-0">
                     <div className="relative overflow-hidden rounded-[28px]">
                     <div className="relative h-[260px] sm:h-[320px]">
                       <Image
