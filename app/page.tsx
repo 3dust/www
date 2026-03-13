@@ -318,28 +318,28 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:grid-cols-2 sm:px-6">
+          <div className="mx-auto mt-8 grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6">
             {paymentFeatures.map((feature) => (
               <article
                 key={feature.title}
-                className="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+                className="flex items-center justify-between gap-4 rounded-[22px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:gap-6 sm:rounded-[28px] sm:p-6"
               >
                 <div className="flex-1 text-left">
-                  <h3 className="text-2xl font-semibold tracking-tight text-slate-950">
+                  <h3 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-2xl">
                     {feature.title}
                   </h3>
-                  <p className="mt-3 min-h-12 text-sm leading-7 text-slate-600 sm:text-base">
+                  <p className="mt-2 text-xs leading-5 text-slate-600 sm:mt-3 sm:min-h-12 sm:text-base sm:leading-7">
                     {feature.description}
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                    className="mt-4 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
                 </div>
 
-                <div className="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
+                <div className="relative h-20 w-20 shrink-0 sm:h-36 sm:w-36">
                   <Image
                     src={feature.image}
                     alt={feature.title}
@@ -352,17 +352,17 @@ export default function Home() {
             ))}
           </div>
 
-          <article className="mx-4 mt-5 flex max-w-6xl flex-col overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 lg:mx-auto lg:flex-row">
-            <div className="flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 sm:py-10">
-              <h3 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+          <article className="mx-4 mt-5 flex max-w-6xl overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 sm:rounded-[32px] lg:mx-auto">
+            <div className="flex flex-1 flex-col justify-center px-4 py-5 sm:px-8 sm:py-10">
+              <h3 className="text-xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 安全、合规地提供收单服务
               </h3>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+              <p className="mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
                 丰富的本地收单牌照资源和收单伙伴关系，让我们的服务遍及中国内地、中国香港、日本、韩国、泰国、印尼、菲律宾、巴基斯坦、新加坡、澳大利亚、美国及欧盟等市场。
               </p>
             </div>
 
-            <div className="relative min-h-[260px] flex-1 lg:min-h-[340px]">
+            <div className="relative min-h-[160px] w-[42%] shrink-0 sm:min-h-[340px] sm:flex-1">
               <Image
                 src="/29.webp"
                 alt="安全、合规地提供收单服务"
@@ -389,13 +389,13 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:grid-cols-5">
+            <div className="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-3 px-4 sm:grid-cols-3 sm:px-6 lg:grid-cols-5">
               {paymentMethodImages.map((imageSrc, index) => (
                 <div
                   key={imageSrc}
-                  className="rounded-[24px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+                  className="rounded-[18px] border border-slate-200 bg-white/85 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:rounded-[24px] sm:p-4"
                 >
-                  <div className="relative h-24 w-full sm:h-28">
+                  <div className="relative h-18 w-full sm:h-28">
                     <Image
                       src={imageSrc}
                       alt={`支付方式 ${index + 1}`}
@@ -419,28 +419,28 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:grid-cols-2 sm:px-6">
+            <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6">
               {advancedFeatures.map((feature) => (
                 <article
                   key={feature.title}
-                  className="flex items-center justify-between gap-6 rounded-[28px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+                  className="flex items-center justify-between gap-4 rounded-[22px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:gap-6 sm:rounded-[28px] sm:p-6"
                 >
                   <div className="flex-1 text-left">
-                    <h3 className="text-2xl font-semibold tracking-tight text-slate-950">
+                    <h3 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-2xl">
                       {feature.title}
                     </h3>
-                    <p className="mt-3 min-h-12 text-sm leading-7 text-slate-600 sm:text-base">
+                    <p className="mt-2 text-xs leading-5 text-slate-600 sm:mt-3 sm:min-h-12 sm:text-base sm:leading-7">
                       {feature.description}
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                      className="mt-4 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       了解详情
                     </Link>
                   </div>
 
-                  <div className="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
+                  <div className="relative h-20 w-20 shrink-0 sm:h-36 sm:w-36">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -464,13 +464,13 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:grid-cols-3 sm:px-6">
+            <div className="mx-auto mt-8 grid max-w-6xl gap-4 px-4 sm:grid-cols-3 sm:px-6">
               {securityFeatures.map((feature) => (
                 <article
                   key={feature.title}
-                  className="flex flex-col items-center rounded-[28px] border border-slate-200 bg-white/85 px-6 py-8 text-center shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm"
+                  className="flex flex-col items-center rounded-[22px] border border-slate-200 bg-white/85 px-4 py-5 text-center shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:rounded-[28px] sm:px-6 sm:py-8"
                 >
-                  <div className="relative h-24 w-24 sm:h-28 sm:w-28">
+                  <div className="relative h-16 w-16 sm:h-28 sm:w-28">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -479,7 +479,7 @@ export default function Home() {
                       sizes="112px"
                     />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-slate-950">
+                  <h3 className="mt-4 text-base font-semibold tracking-tight text-slate-950 sm:mt-6 sm:text-xl">
                     {feature.title}
                   </h3>
                 </article>
@@ -536,23 +536,23 @@ export default function Home() {
               </p>
             </div>
 
-            <article className="mx-4 mt-10 grid max-w-6xl gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 lg:mx-auto lg:grid-cols-[1fr_0.9fr] lg:p-8">
+            <article className="mx-4 mt-8 grid max-w-6xl grid-cols-[1fr_0.44fr] gap-4 overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:mx-6 sm:rounded-[32px] sm:p-6 lg:mx-auto lg:grid-cols-[1fr_0.9fr] lg:p-8">
               <div className="flex flex-col justify-center">
-                <h3 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                <h3 className="text-xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                   A+ Rewards
                 </h3>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                <p className="mt-3 max-w-2xl text-xs leading-5 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
                   Antom 的 AI 营销解决方案，助您提升用户互动、获客效率与营销成效。
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                  className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                 >
                   了解详情
                 </Link>
               </div>
 
-              <div className="relative min-h-[260px] rounded-[28px] bg-slate-50">
+              <div className="relative min-h-[140px] rounded-[18px] bg-slate-50 sm:min-h-[260px] sm:rounded-[28px]">
                 <Image
                   src="/53.svg"
                   alt="A+ Rewards"
@@ -574,24 +574,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-6xl gap-5 px-4 sm:px-6 lg:grid-cols-2">
-              <article className="flex items-center justify-between gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:p-8">
+            <div className="mx-auto mt-8 grid max-w-6xl gap-4 px-4 sm:px-6 lg:grid-cols-2">
+              <article className="flex items-center justify-between gap-4 overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:gap-6 sm:rounded-[32px] sm:p-8">
                 <div className="flex flex-1 flex-col justify-center">
-                  <h3 className="text-3xl font-semibold tracking-tight text-slate-950">
+                  <h3 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-3xl">
                     电商平台
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+                  <p className="mt-2 text-xs leading-5 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
                     助力平台客户向入驻商户提供更优质的服务
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                    className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
                 </div>
 
-                <div className="relative h-40 w-40 shrink-0 rounded-[28px] bg-slate-50 sm:h-48 sm:w-48">
+                <div className="relative h-20 w-20 shrink-0 rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
                   <Image
                     src="/55.svg"
                     alt="电商平台"
@@ -602,23 +602,23 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="flex items-center justify-between gap-6 overflow-hidden rounded-[32px] border border-slate-200 bg-white/85 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:p-8">
+              <article className="flex items-center justify-between gap-4 overflow-hidden rounded-[22px] border border-slate-200 bg-white/85 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:gap-6 sm:rounded-[32px] sm:p-8">
                 <div className="flex flex-1 flex-col justify-center">
-                  <h3 className="text-3xl font-semibold tracking-tight text-slate-950">
+                  <h3 className="text-lg font-semibold tracking-tight text-slate-950 sm:text-3xl">
                     数字娱乐
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+                  <p className="mt-2 text-xs leading-5 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
                     助力转化并留存更多全球数字娱乐用户
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                    className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
                 </div>
 
-                <div className="relative h-40 w-40 shrink-0 rounded-[28px] bg-slate-50 sm:h-48 sm:w-48">
+                <div className="relative h-20 w-20 shrink-0 rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
                   <Image
                     src="/54.svg"
                     alt="数字娱乐"
@@ -712,7 +712,7 @@ export default function Home() {
 
           <footer className="mt-14 bg-[#051b86] text-white">
             <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
-              <div className="grid gap-8 lg:grid-cols-[1fr_1fr_1fr_1fr_0.9fr]">
+              <div className="grid grid-cols-2 gap-8 lg:grid-cols-[1fr_1fr_1fr_1fr_0.9fr]">
                 {footerColumns.map((column) => (
                   <div key={column.title}>
                     <h3 className="text-2xl font-semibold text-white/65">
