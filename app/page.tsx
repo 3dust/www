@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ChevronDown,
   ChevronUp,
@@ -294,12 +295,12 @@ export default function Home() {
             ))}
           </nav>
           </div>
-          <button
-            type="button"
+          <Link
+            href="/contact"
             className="hidden rounded-full bg-[#1738c6] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1330a9] md:inline-flex"
           >
             联系我们
-          </button>
+          </Link>
         </div>
 
         <div className="border-t border-slate-200/80 bg-white/70 md:hidden">
@@ -620,12 +621,12 @@ export default function Home() {
                   <p className="mt-3 min-h-12 text-sm leading-7 text-slate-600 sm:text-base">
                     {feature.description}
                   </p>
-                  <button
-                    type="button"
+                  <Link
+                    href="/contact"
                     className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
                   >
                     了解详情
-                  </button>
+                  </Link>
                 </div>
 
                 <div className="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
@@ -872,12 +873,12 @@ export default function Home() {
                   <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
                     助力平台客户向入驻商户提供更优质的服务
                   </p>
-                  <button
-                    type="button"
+                  <Link
+                    href="/contact"
                     className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
                   >
                     了解详情
-                  </button>
+                  </Link>
                 </div>
 
                 <div className="relative h-40 w-40 shrink-0 rounded-[28px] bg-slate-50 sm:h-48 sm:w-48">
@@ -899,12 +900,12 @@ export default function Home() {
                   <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
                     助力转化并留存更多全球数字娱乐用户
                   </p>
-                  <button
-                    type="button"
+                  <Link
+                    href="/contact"
                     className="mt-6 inline-flex w-fit items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
                   >
                     了解详情
-                  </button>
+                  </Link>
                 </div>
 
                 <div className="relative h-40 w-40 shrink-0 rounded-[28px] bg-slate-50 sm:h-48 sm:w-48">
@@ -990,12 +991,12 @@ export default function Home() {
                 </p>
               </div>
 
-              <button
-                type="button"
+              <Link
+                href="/contact"
                 className="inline-flex w-fit items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-[#0f2f7a] transition hover:bg-white/90"
               >
                 联系我们
-              </button>
+              </Link>
             </div>
           </section>
 
