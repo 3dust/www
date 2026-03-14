@@ -162,9 +162,9 @@ export default function SiteHeader() {
               <p className="mt-3 text-base leading-relaxed text-slate-500">
                 一站式支付、增长、数字化解决方案。
               </p>
-              <a href="#" className="mt-4 inline-block text-sm font-semibold text-[#1738c6]">
+              <Link href="/contact" onClick={closeMenus} className="mt-4 inline-block text-sm font-semibold text-[#1738c6]">
                 查看所有支付方式
-              </a>
+              </Link>
               <p className="mt-2 max-w-md text-sm leading-7 text-slate-500">
                 Antom 支持全球300+支付方式，助您轻松布局国际市场。
               </p>
