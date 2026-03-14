@@ -67,16 +67,15 @@ export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileActive, setMobileActive] = useState<string | null>(null);
 
-  function toggleDesktopNav(item: string) {
-    setActiveNav((cur) => (cur === item ? null : item));
-  }
-
   function toggleMobileNav(item: string) {
     setMobileActive((cur) => (cur === item ? null : item));
   }
 
   return (
-    <header className="sticky top-0 z-30 border-b border-white/60 bg-white/95 backdrop-blur">
+    <header
+      className="sticky top-0 z-30 border-b border-white/60 bg-white/95 backdrop-blur"
+      onMouseLeave={() => setActiveNav(null)}
+    >
       {/* ── Top bar ── */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-6">
         <div className="flex items-center gap-5 lg:gap-6">
@@ -100,7 +99,8 @@ export default function SiteHeader() {
               <button
                 key={item}
                 type="button"
-                onClick={() => toggleDesktopNav(item)}
+                onMouseEnter={() => setActiveNav(item)}
+                onFocus={() => setActiveNav(item)}
                 className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-semibold transition ${
                   activeNav === item
                     ? "border-b-2 border-[#1738c6] text-slate-950"

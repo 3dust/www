@@ -1,5 +1,3 @@
-import { Facebook, Linkedin, MessageCircle, Play, Share2 } from "lucide-react";
-
 const footerColumns = [
   {
     title: "支付产品",
@@ -40,7 +38,7 @@ export default function SiteFooter() {
   return (
     <footer className="mt-14 bg-[#051b86] text-white">
       <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1fr_1fr_1fr_0.9fr]">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {footerColumns.map((column) => (
             <div key={column.title}>
               <h3 className="text-2xl font-semibold text-white/65">
@@ -63,37 +61,32 @@ export default function SiteFooter() {
             </div>
           ))}
 
-          <div>
+          <div className="hidden">
             <h3 className="text-2xl font-semibold text-white/65">
               关注 Antom
             </h3>
             <div className="mt-8 flex flex-wrap gap-6">
-              <Linkedin className="h-10 w-10" strokeWidth={1.8} />
-              <Facebook className="h-10 w-10" strokeWidth={1.8} />
-              <Share2 className="h-10 w-10" strokeWidth={1.8} />
-              <Play className="h-10 w-10" strokeWidth={1.8} />
-              <MessageCircle className="h-10 w-10" strokeWidth={1.8} />
             </div>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/20 pt-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap items-center gap-8 text-2xl font-semibold">
-              <span className="text-lg font-medium">Ant International</span>
+            <div className="flex flex-wrap items-center gap-5 text-sm font-semibold sm:text-base">
+              <span className="text-sm font-medium sm:text-base">Ant International</span>
               <span>Alipay+</span>
               <span>Bettr</span>
               <span>WorldFirst</span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-8 text-xl">
+            <div className="flex flex-wrap items-center gap-6 text-sm sm:text-base">
               <span>网站使用条款</span>
               <span>Cookie声明</span>
               <span>© 2026 Antom</span>
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-8 text-lg text-white/45">
+          <div className="mt-6 flex flex-wrap gap-6 text-sm text-white/45 sm:text-base">
             <span>沪公网安备31011502400860</span>
             <span>沪ICP备2021033667号-5</span>
           </div>

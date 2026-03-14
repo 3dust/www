@@ -30,7 +30,51 @@ export default function BrandMarquee() {
         深受众多国际知名品牌信赖
       </h2>
 
-      <div className="relative mt-6 overflow-hidden py-4">
+      <div className="mt-6 space-y-3 overflow-hidden px-4 sm:hidden">
+        <div className="mobile-brand-marquee flex w-max items-center">
+          {[...brandLogos.slice(0, 9), ...brandLogos.slice(0, 9)].map(
+            (logoSrc, index) => (
+              <div
+                key={`mobile-top-${logoSrc}-${index}`}
+                className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+              >
+                <div className="relative h-7 w-full">
+                  <Image
+                    src={logoSrc}
+                    alt={`鍝佺墝 ${index + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="96px"
+                  />
+                </div>
+              </div>
+            )
+          )}
+        </div>
+
+        <div className="mobile-brand-marquee-reverse flex w-max items-center">
+          {[...brandLogos.slice(9), ...brandLogos.slice(9)].map(
+            (logoSrc, index) => (
+              <div
+                key={`mobile-bottom-${logoSrc}-${index}`}
+                className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+              >
+                <div className="relative h-7 w-full">
+                  <Image
+                    src={logoSrc}
+                    alt={`鍝佺墝 ${index + 10}`}
+                    fill
+                    className="object-contain"
+                    sizes="96px"
+                  />
+                </div>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+
+      <div className="relative mt-6 hidden overflow-hidden py-4 sm:block">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white via-white/85 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white via-white/85 to-transparent" />
 
@@ -60,12 +104,38 @@ export default function BrandMarquee() {
           animation: brand-marquee 36s linear infinite;
         }
 
+        .mobile-brand-marquee {
+          animation: mobile-brand-marquee 18s linear infinite;
+        }
+
+        .mobile-brand-marquee-reverse {
+          animation: mobile-brand-marquee-reverse 20s linear infinite;
+        }
+
         @keyframes brand-marquee {
           from {
             transform: translateX(0);
           }
           to {
             transform: translateX(-50%);
+          }
+        }
+
+        @keyframes mobile-brand-marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes mobile-brand-marquee-reverse {
+          from {
+            transform: translateX(-50%);
+          }
+          to {
+            transform: translateX(0);
           }
         }
       `}</style>
