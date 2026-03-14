@@ -67,6 +67,12 @@ export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileActive, setMobileActive] = useState<string | null>(null);
 
+  function closeMenus() {
+    setActiveNav(null);
+    setMobileOpen(false);
+    setMobileActive(null);
+  }
+
   function toggleMobileNav(item: string) {
     setMobileActive((cur) => (cur === item ? null : item));
   }
@@ -81,7 +87,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-5 lg:gap-6">
           {/* Logo */}
           <div className="relative h-9 w-32 shrink-0">
-            <Link href="/" onClick={() => { setMobileOpen(false); setActiveNav(null); }}>
+            <Link href="/" onClick={closeMenus}>
               <Image
                 src="/antom.svg"
                 alt="Antom"
@@ -119,10 +125,11 @@ export default function SiteHeader() {
         </div>
 
         {/* Desktop contact button */}
-        <Link
-          href="/contact"
-          className="hidden rounded-full bg-[#1738c6] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1330a9] md:inline-flex"
-        >
+          <Link
+            href="/contact"
+            onClick={closeMenus}
+            className="hidden rounded-full bg-[#1738c6] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1330a9] md:inline-flex"
+          >
           联系我们
         </Link>
 
@@ -130,7 +137,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-3 md:hidden">
           <Link
             href="/contact"
-            onClick={() => setMobileOpen(false)}
+            onClick={closeMenus}
             className="rounded-full bg-[#1738c6] px-4 py-2 text-sm font-semibold text-white"
           >
             联系我们
@@ -170,7 +177,13 @@ export default function SiteHeader() {
                 <div className="mt-4 space-y-4">
                   {column.items.map((item) => (
                     <div key={item.name}>
-                      <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                      <Link
+                        href="/contact"
+                        onClick={closeMenus}
+                        className="text-sm font-semibold text-[#1738c6]"
+                      >
+                        {item.name}
+                      </Link>
                       <p className="mt-0.5 text-xs leading-5 text-slate-500">{item.desc}</p>
                     </div>
                   ))}
@@ -193,7 +206,13 @@ export default function SiteHeader() {
             <div className="space-y-5">
               {solutionMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  <Link
+                    href="/contact"
+                    onClick={closeMenus}
+                    className="text-sm font-semibold text-[#1738c6]"
+                  >
+                    {item.name}
+                  </Link>
                   <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
                 </div>
               ))}
@@ -214,7 +233,13 @@ export default function SiteHeader() {
             <div className="space-y-5">
               {resourceMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  <Link
+                    href="/contact"
+                    onClick={closeMenus}
+                    className="text-sm font-semibold text-[#1738c6]"
+                  >
+                    {item.name}
+                  </Link>
                   {item.desc && (
                     <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
                   )}
@@ -237,7 +262,13 @@ export default function SiteHeader() {
             <div className="space-y-5">
               {aboutMenuItems.map((item) => (
                 <div key={item.name}>
-                  <div className="text-sm font-semibold text-[#1738c6]">{item.name}</div>
+                  <Link
+                    href="/contact"
+                    onClick={closeMenus}
+                    className="text-sm font-semibold text-[#1738c6]"
+                  >
+                    {item.name}
+                  </Link>
                   {item.desc && (
                     <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.desc}</p>
                   )}
@@ -247,9 +278,14 @@ export default function SiteHeader() {
             <div className="bg-slate-100 px-6 py-6">
               <div className="space-y-6">
                 {aboutSideItems.map((item) => (
-                  <div key={item} className="text-sm font-semibold text-[#1738c6]">
+                  <Link
+                    key={item}
+                    href="/contact"
+                    onClick={closeMenus}
+                    className="block text-sm font-semibold text-[#1738c6]"
+                  >
                     {item}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -268,9 +304,14 @@ export default function SiteHeader() {
             </div>
             <div className="space-y-5">
               {reportMenuItems.map((item) => (
-                <div key={item} className="text-sm font-semibold leading-7 text-[#1738c6]">
+                <Link
+                  key={item}
+                  href="/contact"
+                  onClick={closeMenus}
+                  className="block text-sm font-semibold leading-7 text-[#1738c6]"
+                >
                   {item}
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -307,9 +348,13 @@ export default function SiteHeader() {
                           <div className="space-y-3">
                             {col.items.map((pi) => (
                               <div key={pi.name}>
-                                <div className="text-sm font-semibold text-[#1738c6]">
+                                <Link
+                                  href="/contact"
+                                  onClick={closeMenus}
+                                  className="text-sm font-semibold text-[#1738c6]"
+                                >
                                   {pi.name}
-                                </div>
+                                </Link>
                                 <p className="text-xs leading-5 text-slate-500">{pi.desc}</p>
                               </div>
                             ))}
@@ -322,7 +367,13 @@ export default function SiteHeader() {
                     <div className="space-y-3">
                       {solutionMenuItems.map((si) => (
                         <div key={si.name}>
-                          <div className="text-sm font-semibold text-[#1738c6]">{si.name}</div>
+                          <Link
+                            href="/contact"
+                            onClick={closeMenus}
+                            className="text-sm font-semibold text-[#1738c6]"
+                          >
+                            {si.name}
+                          </Link>
                           <p className="text-xs leading-5 text-slate-500">{si.desc}</p>
                         </div>
                       ))}
@@ -332,7 +383,13 @@ export default function SiteHeader() {
                     <div className="space-y-3">
                       {resourceMenuItems.map((ri) => (
                         <div key={ri.name}>
-                          <div className="text-sm font-semibold text-[#1738c6]">{ri.name}</div>
+                          <Link
+                            href="/contact"
+                            onClick={closeMenus}
+                            className="text-sm font-semibold text-[#1738c6]"
+                          >
+                            {ri.name}
+                          </Link>
                           {ri.desc && (
                             <p className="text-xs leading-5 text-slate-500">{ri.desc}</p>
                           )}
@@ -345,7 +402,13 @@ export default function SiteHeader() {
                       {[...aboutMenuItems.map((ai) => ({ name: ai.name, desc: ai.desc })), ...aboutSideItems.map((s) => ({ name: s, desc: "" }))].map(
                         (ai) => (
                           <div key={ai.name}>
-                            <div className="text-sm font-semibold text-[#1738c6]">{ai.name}</div>
+                            <Link
+                              href="/contact"
+                              onClick={closeMenus}
+                              className="text-sm font-semibold text-[#1738c6]"
+                            >
+                              {ai.name}
+                            </Link>
                             {ai.desc && (
                               <p className="text-xs leading-5 text-slate-500">{ai.desc}</p>
                             )}
@@ -357,9 +420,14 @@ export default function SiteHeader() {
                   {item === "行业报告" && (
                     <div className="space-y-3">
                       {reportMenuItems.map((ri) => (
-                        <div key={ri} className="text-sm font-semibold leading-6 text-[#1738c6]">
+                        <Link
+                          key={ri}
+                          href="/contact"
+                          onClick={closeMenus}
+                          className="block text-sm font-semibold leading-6 text-[#1738c6]"
+                        >
                           {ri}
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   )}
