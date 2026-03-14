@@ -370,7 +370,7 @@ export default function Home() {
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-3 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                    className="mt-3 inline-flex items-center rounded-full bg-[#1738c6] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1330a9] sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
@@ -471,7 +471,7 @@ export default function Home() {
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-4 inline-flex items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                      className="mt-4 inline-flex items-center rounded-full bg-[#1738c6] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1330a9] sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       了解详情
                     </Link>
@@ -585,18 +585,18 @@ export default function Home() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                  className="mt-4 inline-flex w-fit items-center rounded-full bg-[#1738c6] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1330a9] sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                 >
                   了解详情
                 </Link>
               </div>
 
-              <div className="relative min-h-[140px] rounded-[18px] bg-slate-50 sm:min-h-[260px] sm:rounded-[28px]">
+              <div className="relative min-h-[140px] overflow-hidden rounded-[18px] bg-slate-50 sm:min-h-[260px] sm:rounded-[28px]">
                 <Image
                   src="/53.svg"
                   alt="A+ Rewards"
                   fill
-                  className="object-contain p-6 sm:p-8"
+                  className="object-contain scale-[1.45] p-2 sm:scale-100 sm:p-8"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
@@ -624,18 +624,18 @@ export default function Home() {
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                    className="mt-4 inline-flex w-fit items-center rounded-full bg-[#1738c6] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1330a9] sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
                 </div>
 
-                <div className="relative h-20 w-20 shrink-0 rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
                   <Image
                     src="/55.svg"
                     alt="电商平台"
                     fill
-                    className="object-contain p-6"
+                    className="object-contain scale-[1.45] p-1 sm:scale-100 sm:p-6"
                     sizes="(max-width: 1024px) 100vw, 30vw"
                   />
                 </div>
@@ -651,18 +651,18 @@ export default function Home() {
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-4 inline-flex w-fit items-center rounded-full bg-slate-950 px-4 py-2 text-xs font-medium text-white transition hover:bg-slate-800 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
+                    className="mt-4 inline-flex w-fit items-center rounded-full bg-[#1738c6] px-4 py-2 text-xs font-medium text-white transition hover:bg-[#1330a9] sm:mt-6 sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     了解详情
                   </Link>
                 </div>
 
-                <div className="relative h-20 w-20 shrink-0 rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[18px] bg-slate-50 sm:h-48 sm:w-48 sm:rounded-[28px]">
                   <Image
                     src="/54.svg"
                     alt="数字娱乐"
                     fill
-                    className="object-contain p-6"
+                    className="object-contain scale-[1.45] p-1 sm:scale-100 sm:p-6"
                     sizes="(max-width: 1024px) 100vw, 30vw"
                   />
                 </div>
@@ -751,19 +751,19 @@ export default function Home() {
 
           <footer className="mt-14 bg-[#051b86] text-white">
             <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
-              <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
                 {footerColumns.map((column) => (
                   <div key={column.title}>
-                    <h3 className="text-2xl font-semibold text-white/65">
+                    <h3 className="text-lg font-semibold text-white/65 sm:text-2xl">
                       {column.title}
                     </h3>
-                    <ul className="mt-6 space-y-5 text-[1.05rem] font-semibold">
+                    <ul className="mt-4 space-y-3 text-sm font-semibold sm:mt-6 sm:space-y-5 sm:text-[1.05rem]">
                       {column.items.map((item) => (
                         <li
                           key={item}
                           className={
                             item.startsWith("__TITLE__")
-                              ? "pt-2 text-2xl text-white/65"
+                              ? "pt-1 text-lg text-white/65 sm:pt-2 sm:text-2xl"
                               : ""
                           }
                         >
@@ -785,21 +785,21 @@ export default function Home() {
 
               <div className="mt-10 border-t border-white/20 pt-8">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex flex-wrap items-center gap-5 text-sm font-semibold sm:text-base">
-                    <span className="text-sm font-medium sm:text-base">Ant International</span>
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-semibold sm:gap-5 sm:text-base">
+                    <span className="text-xs font-medium sm:text-base">Ant International</span>
                     <span>Alipay+</span>
                     <span>Bettr</span>
                     <span>WorldFirst</span>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-6 text-sm sm:text-base">
+                  <div className="flex flex-wrap items-center gap-4 text-xs sm:gap-6 sm:text-base">
                     <span>网站使用条款</span>
                     <span>Cookie声明</span>
                     <span>© 2026 Antom</span>
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-6 text-sm text-white/45 sm:text-base">
+                <div className="mt-5 flex flex-wrap gap-4 text-xs text-white/45 sm:mt-6 sm:gap-6 sm:text-base">
                   <span>沪公网安备31011502400860</span>
                   <span>沪ICP备2021033667号-5</span>
                 </div>

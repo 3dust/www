@@ -38,19 +38,19 @@ export default function SiteFooter() {
   return (
     <footer className="mt-14 bg-[#051b86] text-white">
       <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-2xl font-semibold text-white/65">
+              <h3 className="text-lg font-semibold text-white/65 sm:text-2xl">
                 {column.title}
               </h3>
-              <ul className="mt-6 space-y-5 text-[1.05rem] font-semibold">
+              <ul className="mt-4 space-y-3 text-sm font-semibold sm:mt-6 sm:space-y-5 sm:text-[1.05rem]">
                 {column.items.map((item) => (
                   <li
                     key={item}
                     className={
                       item.startsWith("__TITLE__")
-                        ? "pt-2 text-2xl text-white/65"
+                        ? "pt-1 text-lg text-white/65 sm:pt-2 sm:text-2xl"
                         : ""
                     }
                   >
@@ -72,21 +72,21 @@ export default function SiteFooter() {
 
         <div className="mt-10 border-t border-white/20 pt-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap items-center gap-5 text-sm font-semibold sm:text-base">
-              <span className="text-sm font-medium sm:text-base">Ant International</span>
+            <div className="flex flex-wrap items-center gap-4 text-xs font-semibold sm:gap-5 sm:text-base">
+              <span className="text-xs font-medium sm:text-base">Ant International</span>
               <span>Alipay+</span>
               <span>Bettr</span>
               <span>WorldFirst</span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm sm:text-base">
+            <div className="flex flex-wrap items-center gap-4 text-xs sm:gap-6 sm:text-base">
               <span>网站使用条款</span>
               <span>Cookie声明</span>
               <span>© 2026 Antom</span>
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-6 text-sm text-white/45 sm:text-base">
+          <div className="mt-5 flex flex-wrap gap-4 text-xs text-white/45 sm:mt-6 sm:gap-6 sm:text-base">
             <span>沪公网安备31011502400860</span>
             <span>沪ICP备2021033667号-5</span>
           </div>

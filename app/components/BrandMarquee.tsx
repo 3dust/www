@@ -36,15 +36,15 @@ export default function BrandMarquee() {
             (logoSrc, index) => (
               <div
                 key={`mobile-top-${logoSrc}-${index}`}
-                className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+                className="mx-4 flex h-14 w-28 shrink-0 items-center justify-center"
               >
-                <div className="relative h-7 w-full">
+                <div className="relative h-8 w-full">
                   <Image
                     src={logoSrc}
                     alt={`鍝佺墝 ${index + 1}`}
                     fill
-                    className="object-contain"
-                    sizes="96px"
+                    className="object-contain scale-125"
+                    sizes="112px"
                   />
                 </div>
               </div>
@@ -57,15 +57,15 @@ export default function BrandMarquee() {
             (logoSrc, index) => (
               <div
                 key={`mobile-bottom-${logoSrc}-${index}`}
-                className="mx-4 flex h-12 w-24 shrink-0 items-center justify-center"
+                className="mx-4 flex h-14 w-28 shrink-0 items-center justify-center"
               >
-                <div className="relative h-7 w-full">
+                <div className="relative h-8 w-full">
                   <Image
                     src={logoSrc}
                     alt={`鍝佺墝 ${index + 10}`}
                     fill
-                    className="object-contain"
-                    sizes="96px"
+                    className="object-contain scale-125"
+                    sizes="112px"
                   />
                 </div>
               </div>
